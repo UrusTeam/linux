@@ -8,11 +8,6 @@
 };
 
 &gpio {
-	sdhost_pins: sdhost_pins {
-		brcm,pins = <48 49 50 51 52 53>;
-		brcm,function = <4>; /* alt0 */
-	};
-
 	spi0_pins: spi0_pins {
 		brcm,pins = <9 10 11>;
 		brcm,function = <4>; /* alt0 */
@@ -42,13 +37,6 @@
 		brcm,pins = <40 45>;
 		brcm,function = <4>;
 	};
-};
-
-&sdhost {
-	pinctrl-names = "default";
-	pinctrl-0 = <&sdhost_pins>;
-	bus-width = <4>;
-	status = "okay";
 };
 
 &fb {
@@ -139,9 +127,5 @@
 		audio = <&audio>,"status";
 		watchdog = <&watchdog>,"status";
 		random = <&random>,"status";
-		sd_overclock = <&sdhost>,"brcm,overclock-50:0";
-		sd_force_pio = <&sdhost>,"brcm,force-pio?";
-		sd_pio_limit = <&sdhost>,"brcm,pio-limit:0";
-		sd_debug     = <&sdhost>,"brcm,debug";
 	};
 };

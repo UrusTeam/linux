@@ -26,18 +26,6 @@
 			interrupts = <2 17>, <2 18>;
 		};
 
-		sdhost: sdhost@7e202000 {
-			compatible = "brcm,bcm2835-sdhost";
-			reg = <0x7e202000 0x100>;
-			interrupts = <2 24>;
-			clocks = <&clocks BCM2835_CLOCK_VPU>;
-			dmas = <&dma 13>;
-			dma-names = "rx-tx";
-			brcm,overclock-50 = <0>;
-			brcm,pio-limit = <1>;
-			status = "disabled";
-		};
-
 		i2s@7e203000 { /* i2s */
 			#sound-dai-cells = <0>;
 			reg = <0x7e203000 0x24>;
