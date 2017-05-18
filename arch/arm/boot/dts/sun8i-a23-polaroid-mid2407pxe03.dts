@@ -107,3 +107,12 @@
 	vddio-supply = <&reg_ldo_io1>;
 	status = "okay";
 };
+
+&usb_otg {
+	dr_mode = "host";
+	status = "okay";
+};
+
+&usbphy {
+	status = "okay";
+};
