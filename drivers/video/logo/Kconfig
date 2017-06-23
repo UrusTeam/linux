@@ -67,4 +67,13 @@ config LOGO_SUPERH_CLUT224
 	depends on SUPERH
 	default y
 
+config LOGO_M32R_CLUT224
+	bool "224-color M32R Linux logo"
+	depends on M32R
+	default y
+
+config LOGO_URUS_CLUT224
+	bool "224-color Urus logo"
+	default y
+
 endif # LOGO
