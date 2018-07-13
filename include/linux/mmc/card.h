@@ -22,6 +22,7 @@ struct mmc_cid {
 	unsigned char		hwrev;
 	unsigned char		fwrev;
 	unsigned char		month;
+	unsigned int		prv;
 };
 
 struct mmc_csd {
@@ -77,6 +78,16 @@ struct mmc_ext_csd {
 	u8			raw_sec_feature_support;/* 231 */
 	u8			raw_trim_mult;		/* 232 */
 	u8			raw_sectors[4];		/* 212 - 4 bytes */
+	bool			hpi_en;			/* HPI enablebit */
+	bool			hpi;			/* HPI support bit */
+	unsigned int		hpi_cmd;		/* cmd used as HPI */
+	u8			out_of_int_time;	/* out of int time */
+	bool			bk_ops;			/* BK ops support bit */
+	bool			bk_ops_en;		/* BK ops enable bit */
+	unsigned int		sec_count;
+
+	unsigned int		feature_support;
+#define MMC_DISCARD_FEATURE	BIT(0)
 };
 
 struct sd_scr {
@@ -176,6 +187,8 @@ struct mmc_card {
 #define MMC_STATE_BLOCKADDR	(1<<3)		/* card uses block-addressing */
 #define MMC_STATE_HIGHSPEED_DDR (1<<4)		/* card is in high speed mode */
 #define MMC_STATE_ULTRAHIGHSPEED (1<<5)		/* card is in ultra high speed mode */
+#define MMC_STATE_DOING_BKOPS	(1<<6)		/* Card doing bkops */
+#define MMC_STATE_NEED_BKOPS	(1<<7)		/* Card needs to do bkops */
 #define MMC_CARD_SDXC		(1<<6)		/* card is SDXC */
 	unsigned int		quirks; 	/* card quirks */
 #define MMC_QUIRK_LENIENT_FN0	(1<<0)		/* allow SDIO FN0 writes outside of the VS CCCR range */
@@ -312,9 +325,10 @@ static inline void __maybe_unused remove_quirk(struct mmc_card *card, int data)
 #define mmc_card_highspeed(c)	((c)->state & MMC_STATE_HIGHSPEED)
 #define mmc_card_blockaddr(c)	((c)->state & MMC_STATE_BLOCKADDR)
 #define mmc_card_ddr_mode(c)	((c)->state & MMC_STATE_HIGHSPEED_DDR)
-#define mmc_sd_card_uhs(c) ((c)->state & MMC_STATE_ULTRAHIGHSPEED)
+#define mmc_sd_card_uhs(c)	((c)->state & MMC_STATE_ULTRAHIGHSPEED)
 #define mmc_card_ext_capacity(c) ((c)->state & MMC_CARD_SDXC)
-
+#define mmc_card_doing_bkops(c) ((c)->state & MMC_STATE_DOING_BKOPS)
+#define mmc_card_need_bkops(c) ((c)->state & MMC_STATE_NEED_BKOPS)
 #define mmc_card_set_present(c)	((c)->state |= MMC_STATE_PRESENT)
 #define mmc_card_set_readonly(c) ((c)->state |= MMC_STATE_READONLY)
 #define mmc_card_set_highspeed(c) ((c)->state |= MMC_STATE_HIGHSPEED)
@@ -356,6 +370,11 @@ static inline void __maybe_unused remove_quirk_sd(struct mmc_card *card,
 	if (mmc_card_sd(card))
 		card->quirks &= ~data;
 }
+#define mmc_card_set_doing_bkops(c) ((c)->state |= MMC_STATE_DOING_BKOPS)
+#define mmc_card_set_need_bkops(c) ((c)->state |= MMC_STATE_NEED_BKOPS)
+
+#define mmc_card_clr_doing_bkops(c) ((c)->state &= ~MMC_STATE_DOING_BKOPS)
+#define mmc_card_clr_need_bkops(c) ((c)->state &= ~MMC_STATE_NEED_BKOPS)
 
 static inline int mmc_card_lenient_fn0(const struct mmc_card *c)
 {
