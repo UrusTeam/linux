@@ -1,2 +1,0 @@
-config WPS_PBC
-	bool "WPS push button"

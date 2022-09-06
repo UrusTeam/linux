@@ -1,3 +1,0 @@
-DESC_CFLAGS += -DTELECHIPS
-KERNEL_DIR=../../kernel
-

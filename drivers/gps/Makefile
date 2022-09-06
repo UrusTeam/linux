@@ -1,1 +1,0 @@
-obj-$(CONFIG_GPS_JGR_SC3_S) := gpio.o
