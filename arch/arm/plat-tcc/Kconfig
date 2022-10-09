@@ -7,9 +7,8 @@ config ARCH_TCC892X
 	bool "TCC892x"
 	select AEABI
 	select CPU_V7
-	select VFP
-	select NEON
 	select CACHE_L2X0
+	select MALI400
 
 config ARCH_TCC893X
 	bool "TCC893x"
