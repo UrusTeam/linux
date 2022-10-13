@@ -57,7 +57,7 @@
  *
  */
 
-#include "dwc_os.h"
+#include "../dwc_common_port/dwc_os.h"
 #include "dwc_otg_regs.h"
 #include "dwc_otg_cil.h"
 

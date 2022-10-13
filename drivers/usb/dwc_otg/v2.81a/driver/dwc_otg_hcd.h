@@ -34,11 +34,11 @@
 #ifndef __DWC_HCD_H__
 #define __DWC_HCD_H__
 
-#include <usb.h>
+#include "../dwc_common_port/usb.h"
 #include "dwc_otg_hcd_if.h"
 #include "dwc_otg_core_if.h"
 #include "dwc_otg_regs.h"
-#include "dwc_list.h"
+#include "../dwc_common_port/dwc_list.h"
 #include "dwc_otg_cil.h"
 
 /**

@@ -73,7 +73,7 @@
 #include <asm/mach-types.h>
 #include <asm/gpio.h>
 
-#include "dwc_os.h"
+#include "../dwc_common_port/dwc_os.h"
 #include "dwc_otg_dbg.h"
 #include "dwc_otg_attr.h"
 #include "dwc_otg_driver.h"

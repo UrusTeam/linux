@@ -34,10 +34,10 @@
 #if !defined(__DWC_PCD_H__)
 #define __DWC_PCD_H__
 
-#include "usb.h"
+#include "../dwc_common_port/usb.h"
 #include "dwc_otg_cil.h"
 #include "dwc_otg_pcd_if.h"
-#include "dwc_os.h"
+#include "../dwc_common_port/dwc_os.h"
 
 struct cfiobject;
 

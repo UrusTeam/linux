@@ -35,8 +35,8 @@
 #define __DWC_CIL_H__
 #include <linux/workqueue.h>
 #include <linux/clk.h>
-#include "dwc_os.h"
-#include "dwc_list.h"
+#include "../dwc_common_port/dwc_os.h"
+#include "../dwc_common_port/dwc_list.h"
 #include "dwc_otg_dbg.h"
 #include "dwc_otg_regs.h"
 

@@ -39,9 +39,9 @@
  * header file.
  */
 
-#include <usb.h>
+#include "../dwc_common_port/usb.h"
 
-#include "dwc_os.h"
+#include "../dwc_common_port/dwc_os.h"
 #include "dwc_otg_hcd.h"
 #include "tcc_usb_phy.h"
 

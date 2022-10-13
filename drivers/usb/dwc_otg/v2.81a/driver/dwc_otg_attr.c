@@ -299,7 +299,7 @@
 #include <asm/sizes.h>
 #include <asm/io.h>
 
-#include "dwc_os.h"
+#include "../dwc_common_port/dwc_os.h"
 #include "dwc_otg_attr.h"
 #include "dwc_otg_driver.h"
 #include "dwc_otg_core_if.h"

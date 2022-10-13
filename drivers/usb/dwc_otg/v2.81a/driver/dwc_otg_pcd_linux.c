@@ -74,7 +74,7 @@
 #include "dwc_otg_pcd_if.h"
 #include "dwc_otg_dbg.h"
 #include "tcc_usb_def.h"
-#include "dwc_os.h"
+#include "../dwc_common_port/dwc_os.h"
 #include "dwc_otg_pcd.h"
 
 #if defined(CONFIG_CLOCK_TABLE)

@@ -32,7 +32,7 @@
  * ========================================================================== */
 #ifndef DWC_DEVICE_ONLY
 
-#include <usb.h>
+#include "../dwc_common_port/usb.h"
 
 #include "dwc_otg_driver.h"
 #include "dwc_otg_hcd.h"

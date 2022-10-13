@@ -35,7 +35,7 @@
 #if !defined(__DWC_PCD_IF_H__)
 #define __DWC_PCD_IF_H__
 
-#include "dwc_os.h"
+#include "../dwc_common_port/dwc_os.h"
 
 /** @file 
  * This file defines DWC_OTG PCD Core API.

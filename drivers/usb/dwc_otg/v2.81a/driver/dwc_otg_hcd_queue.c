@@ -43,7 +43,7 @@
 #include "dwc_otg_hcd.h"
 #include "dwc_otg_regs.h"
 
-#include <usb.h>
+#include "../dwc_common_port/usb.h"
 
 #ifdef DWC_HOST_NON_ALIGN_BUF_PATCH
 #include <linux/dma-mapping.h>
