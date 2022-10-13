@@ -5132,8 +5132,12 @@ static int tccfb_restore(struct device *dev)
 
       return 0;
 }
+#else
+static void tccfb_shutdown(struct platform_device *dev)
+{
+        printk(" %s \n",__func__);
+}
 #endif
-
 
 
 static struct fb_ops tccfb_ops = {
