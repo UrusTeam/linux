@@ -17,7 +17,7 @@
 #include <linux/types.h>
 #include <linux/serial_reg.h>
 
-unsigned int system_rev;
+extern unsigned int system_rev;
 
 #define ID_MASK			0x7fff
 

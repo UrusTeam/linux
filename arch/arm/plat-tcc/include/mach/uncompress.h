@@ -9,7 +9,7 @@
 
 #include <mach/tcc8k-regs.h>
 
-unsigned int system_rev;
+extern unsigned int system_rev;
 
 #define ID_MASK			0x7fff
 

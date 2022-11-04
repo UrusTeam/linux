@@ -41,7 +41,7 @@ static struct clk *g_pEHCIClk = NULL;
 static struct clk *g_pXHCIClk = NULL; 
 static int is_usb_otg = 0;
 static unsigned int g_iExec = 0;
-static int system_rev = 0x0;
+extern unsigned int system_rev;
 
 
 void tcc_ohci_clkset(int on)
