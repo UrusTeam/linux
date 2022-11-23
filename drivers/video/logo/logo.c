@@ -105,6 +105,7 @@ const struct linux_logo * __ref fb_find_logo(int depth)
 #ifdef CONFIG_LOGO_ARMBIAN_CLUT224
 		/* Armadeus Linux logo */
 		logo = &logo_armbian_clut224;
+#endif
 #ifdef CONFIG_LOGO_M32R_CLUT224
 		/* M32R Linux logo */
 		logo = &logo_m32r_clut224;
