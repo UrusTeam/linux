@@ -55,6 +55,8 @@
 		/* The H3 emac is not used so the wifi is ethernet0 */
 		ethernet0 = &rtl8189ftv;
 		serial0 = &uart0;
+        spi0 = &spi0;
+        spi1 = &spi1;
 	};
 
 	chosen {
@@ -221,4 +223,28 @@
 
 &i2c2_pins {
 	bias-pull-up;
+};
+
+&spi0 {
+       pinctrl-names = "default";
+       pinctrl-0 = <&spi0_pins>;
+       status = "okay";
+
+       spidev@0 {
+               compatible = "spidev";
+               spi-max-frequency = <1200000>;
+               reg = <0>;
+       };
+};
+
+&spi1 {
+       pinctrl-names = "default";
+       pinctrl-0 = <&spi1_pins>;
+       status = "okay";
+
+       spidev@0 {
+               compatible = "spidev";
+               spi-max-frequency = <1200000>;
+               reg = <0>;
+       };
 };
